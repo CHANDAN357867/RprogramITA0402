@@ -1,0 +1,45 @@
+
+# Load the built-in ChickWeight dataset
+data("ChickWeight")
+
+# Ensure that Diet is treated as a factor
+ChickWeight$Diet <- as.factor(ChickWeight$Diet)
+
+# Create a multiple regression model
+reg_model <- lm(weight ~ Time + Diet, data = ChickWeight)
+
+# Summary of the regression model
+summary(reg_model)
+
+# b. Predict weight for Time=10 and Diet=1
+new_data <- data.frame(Time = 10, Diet = factor(1))
+predicted_weight <- predict(reg_model, newdata = new_data)
+
+cat("Predicted weight for Time = 10 and Diet = 1:", predicted_weight, "\n")
+
+# c. Find the error in the model for the same data point
+actual_weight <- ChickWeight$weight[ChickWeight$Time == 10 & ChickWeight$Diet == 1]
+error <- actual_weight - predicted_weight
+
+cat("Error in the model:", error, "\n")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+output
+
+Error in the model: -5.429309 4.570691 0.5706915 -11.42931 7.570691 25.57069 13.57069 -5.429309 -2.429309 -17.42931 40.57069 -10.42931 -31.42931 29.57069 -30.42931 -47.42931 -9.429309 -27.42931 -25.42931 
