@@ -1,0 +1,47 @@
+values <- 1:24
+dimensions <- c(3, 4, 3)
+dim_names <- list(  
+  c("Row1", "Row2", "Row3"),
+  c("Col1", "Col2", "Col3", "Col4"),
+  c("Depth1","Depth2","Depth3")
+)
+my_array <- array(values, dim = dimensions, dimnames = dim_names)
+print(my_array)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+output
+, , Depth1
+
+     Col1 Col2 Col3 Col4
+Row1    1    4    7   10
+Row2    2    5    8   11
+Row3    3    6    9   12
+
+, , Depth2
+
+     Col1 Col2 Col3 Col4
+Row1   13   16   19   22
+Row2   14   17   20   23
+Row3   15   18   21   24
+
+, , Depth3
+
+     Col1 Col2 Col3 Col4
+Row1    1    4    7   10
+Row2    2    5    8   11
+Row3    3    6    9   12
