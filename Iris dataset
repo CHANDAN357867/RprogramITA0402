@@ -1,0 +1,57 @@
+import pandas as pd
+import numpy as np
+from sklearn.datasets import load_iris
+
+# Load the Iris dataset
+iris = load_iris()
+iris_df = pd.DataFrame(data= np.c_[iris['data'], iris['target']],
+                        columns= iris['feature_names'] + ['target'])
+
+# (i) Dimension, Structure, Summary Statistics, Standard Deviation of all features
+print("Dimension of the dataset:")
+print(iris_df.shape)
+
+print("\nStructure of the dataset:")
+print(iris_df.info())
+
+print("\nSummary statistics:")
+print(iris_df.describe())
+
+print("\nStandard Deviation of all features:")
+print(iris_df.std())
+
+# (ii) Mean and Standard Deviation of features grouped by species
+species_grouped = iris_df.groupby('target')
+print("\nMean of features grouped by species:")
+print(species_grouped.mean())
+
+print("\nStandard Deviation of features grouped by species:")
+print(species_grouped.std())
+
+# (iii) Quantile values of sepal width and length
+quantiles = iris_df[['sepal width (cm)', 'sepal length (cm)']].quantile([0.25, 0.5, 0.75])
+print("\nQuantile values of sepal width and length:")
+print(quantiles)
+
+# (iv) Create new data frame with Sepal.Length.Cate column
+iris_df['Sepal.Length.Cate'] = pd.qcut(iris_df['sepal length (cm)'], q=4)
+print("\nNew data frame 'iris1' with Sepal.Length.Cate column:")
+print(iris_df.head())
+
+# (v) Average value of numerical variables by Species and Sepal.Length.Cate
+grouped_avg = iris_df.groupby(['target', 'Sepal.Length.Cate']).mean()
+print("\nAverage value of numerical variables by Species and Sepal.Length.Cate:")
+print(grouped_avg)
+
+# (vi) Average mean value of numerical variables by Species and Sepal.Length.Cate
+grouped_avg_mean = grouped_avg.mean(level=0)
+print("\nAverage mean value of numerical variables by Species:")
+print(grouped_avg_mean)
+
+# (vii) Create Pivot Table based on Species and Sepal.Length.Cate
+pivot_table = pd.pivot_table(iris_df, values=['sepal length (cm)', 'sepal width (cm)',
+                                              'petal length (cm)', 'petal width (cm)'],
+                             index=['target', 'Sepal.Length.Cate'],
+                             aggfunc=np.mean)
+print("\nPivot Table based on Species and Sepal.Length.Cate:")
+print(pivot_table)
