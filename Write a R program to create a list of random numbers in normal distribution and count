@@ -1,0 +1,39 @@
+
+set.seed(123)
+num_samples <- 10
+mean_value <- 0
+sd_value <- 1
+random_numbers <- rnorm(num_samples, mean = mean_value, sd = sd_value)
+value_counts <- table(random_numbers)
+cat("Generated random numbers:\n")
+print(random_numbers)
+
+cat("\nOccurrences of each value:\n")
+print(value_counts)
+
+
+
+
+
+
+
+
+
+
+
+
+output
+nt(random_numbers)
+ [1] -0.56047565 -0.23017749  1.55870831  0.07050839  0.12928774  1.71506499  0.46091621
+ [8] -1.26506123 -0.68685285 -0.44566197
+> 
+> cat("\nOccurrences of each value:\n")
+
+Occurrences of each value:
+> print(value_counts)
+random_numbers
+ -1.26506123460653 -0.686852851893526 -0.560475646552213 -0.445661970099958 
+                 1                  1                  1                  1 
+ -0.23017748948328  0.070508391424576  0.129287735160946  0.460916205989202 
+                 1                  1                  1                  1 
+  1.55870831414912   1.71506498688328 
