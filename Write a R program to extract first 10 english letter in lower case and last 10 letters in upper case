@@ -1,0 +1,31 @@
+# Sample input string
+input_string <- "abcdefghijklmnopqrstuvwxyz"
+
+# Extracting the first 10 English letters in lower case
+first_10_lower <- substr(input_string, 1, 10)
+
+# Extracting the last 10 English letters in upper case
+last_10_upper <- toupper(substr(input_string, nchar(input_string) - 9, nchar(input_string)))
+
+# Extracting letters between 22nd and 24th positions in upper case
+letters_22_to_24_upper <- toupper(substr(input_string, 22, 24))
+
+# Printing the results
+cat("First 10 letters in lower case:", first_10_lower, "\n")
+cat("Last 10 letters in upper case:", last_10_upper, "\n")
+cat("Letters between 22nd and 24th in upper case:", letters_22_to_24_upper, "\n")
+
+
+
+
+
+
+
+
+output
+> cat("First 10 letters in lower case:", first_10_lower, "\n")
+First 10 letters in lower case: abcdefghij 
+> cat("Last 10 letters in upper case:", last_10_upper, "\n")
+Last 10 letters in upper case: QRSTUVWXYZ 
+> cat("Letters between 22nd and 24th in upper case:", letters_22_to_24_upper, "\n")
+Letters between 22nd and 24th in upper case: VWX 
