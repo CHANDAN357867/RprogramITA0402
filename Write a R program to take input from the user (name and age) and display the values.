@@ -1,0 +1,21 @@
+name<-c("baskar","kannan")
+age<-c(20,42)
+df<-data.frame(name,age)
+print(df)
+
+
+
+
+
+
+
+
+
+
+
+
+
+output-
+    name age
+1 baskar  20
+2 kannan  42
