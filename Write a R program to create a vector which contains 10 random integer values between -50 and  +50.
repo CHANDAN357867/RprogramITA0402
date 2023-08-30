@@ -1,0 +1,20 @@
+set.seed(10)
+random_vector<-sample(-50:50,10,replace=TRUE)
+print(random_vector)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+output
+ [1] -42  23  25   4  21   3 -12  32  37 -36
