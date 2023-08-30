@@ -1,0 +1,33 @@
+numeric_vector <- c(1.5, 2.7, 3.2, 4.9)
+character_vector <- c("apple", "banana", "cherry", "date")
+logical_vector <- c(TRUE, FALSE, TRUE, FALSE)
+cat("Numeric Vector:\n")
+print(numeric_vector)
+cat("Character Vector:\n")
+print(character_vector)
+cat("Logical Vector:\n")
+print(logical_vector)
+
+
+
+
+
+
+
+
+
+
+
+
+output
+Numeric Vector:
+> print(numeric_vector)
+[1] 1.5 2.7 3.2 4.9
+> cat("Character Vector:\n")
+Character Vector:
+> print(character_vector)
+[1] "apple"  "banana" "cherry" "date"  
+> cat("Logical Vector:\n")
+Logical Vector:
+> print(logical_vector)
+[1]  TRUE FALSE  TRUE FALSE
