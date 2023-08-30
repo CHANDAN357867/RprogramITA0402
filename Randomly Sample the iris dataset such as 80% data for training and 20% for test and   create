@@ -1,0 +1,38 @@
+
+
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import confusion_matrix
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Load the Iris dataset
+iris = load_iris()
+iris_df = pd.DataFrame(data= np.c_[iris['data'], iris['target']],
+                        columns= iris['feature_names'] + ['target'])
+
+# Select features and target
+X = iris_df[['petal width (cm)', 'petal length (cm)']]
+y = iris_df['target']
+
+# Split the data into training and test sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Create and train a Logistic Regression model
+model = LogisticRegression()
+model.fit(X_train, y_train)
+
+# Predict probabilities using the test data
+y_pred_prob = model.predict_proba(X_test)
+
+# Create a confusion matrix
+y_pred = model.predict(X_test)
+confusion = confusion_matrix(y_test, y_pred)
+
+# Display the confusion matrix using a heatmap
+plt.figure(figsize=(8, 6))
+sns.heatmap(confusion, annot=True, cmap="Blues", fmt="d")
+plt.xlabel("Predicted")
+plt.ylabel("Actual")
+plt.title("Confusion Matrix")
+plt.show()
